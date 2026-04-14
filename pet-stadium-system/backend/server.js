@@ -73,7 +73,16 @@ app.post('/api/chatbot', (req, res) => {
     res.json({ reply });
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-    console.log(`Pet Stadium Backend running on port ${PORT}`);
+// Serve static React frontend files from /public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Catch-all route to redirect unknown requests (like React Router refreshes) to index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// IMPORTANT: Google Cloud Run dynamically passes a port and requires host to be 0.0.0.0
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Unified Pet Stadium System running on port ${PORT}`);
 });
