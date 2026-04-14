@@ -1,0 +1,18 @@
+{
+  "stadiumInfo": {
+    "name": "Grand Pet-Friendly Stadium",
+    "zones": [
+      { "id": "A", "name": "North Entry", "crowdLevel": "high", "type": "entry" },
+      { "id": "B", "name": "Food Stall 1", "crowdLevel": "medium", "type": "food", "waitTime": 15 },
+      { "id": "C", "name": "Pet Relief Zone A", "crowdLevel": "low", "type": "pet", "waitTime": 2 },
+      { "id": "D", "name": "South Exit", "crowdLevel": "medium", "type": "exit" },
+      { "id": "E", "name": "Pet Care Center", "crowdLevel": "low", "type": "pet", "waitTime": 5 },
+      { "id": "F", "name": "East Entry", "crowdLevel": "low", "type": "entry" }
+    ],
+    "alerts": [
+      { "id": 1, "message": "North Entry is experiencing high traffic. Please use East Entry.", "type": "warning" },
+      { "id": 2, "message": "Pet Relief Zone A has fresh water refilled.", "type": "info" }
+    ]
+  },
+  "pets": []
+}
