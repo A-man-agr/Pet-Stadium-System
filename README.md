@@ -1,6 +1,6 @@
 # 🏟️ Pet-Friendly Smart Stadium System
 
-![Stadium Dashboard Preview](/Screenshot) <!-- Add a screenshot link later -->
+![Stadium Dashboard Preview](./screenshot.png) <!-- Add a screenshot link later -->
 
 A highly futuristic, full-stack Management System built specifically for venues anticipating massive crowds and their pets. 
 
