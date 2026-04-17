@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
-    "gcp-build": "npm install --prefix frontend --include=dev && npm run build --prefix frontend && rm -rf public && cp -R frontend/dist public"
+    "gcp-build": "npm install --prefix frontend --include=dev && npm run build --prefix frontend && rm -rf public && mv frontend/dist public"
   },
   "dependencies": {
     "@google-cloud/firestore": "^7.3.0",
