@@ -20,12 +20,31 @@ This ecosystem leverages extremely modern, enterprise-grade Google APIs to drive
 
 ---
 
-## 💻 Technology Stack
+## 💻 Comprehensive Technology Stack
 
-*   **Frontend**: React, Vite, Lucide-React, CSS3 Glassmorphism
-*   **Backend**: Node.js, Express, Helmet (Security), Rate Limiting
-*   **Cloud Ecosystem**: Google Cloud Platform (GCP)
-*   **Design Paradigm**: Dark Mode, Cyberpunk UI, Micro-Animations
+### 🎨 Frontend Architecture
+*   **Framework**: React 18 (Functional Components, Hooks)
+*   **Build Tool**: Vite (Lightning-fast HMR and optimized production bundling)
+*   **Styling**: Pure CSS3 with modern methodologies (Glassmorphism, CSS Variables, CSS Keyframe Micro-animations)
+*   **Icons & UI**: Lucide-React (Lightweight, crisp SVG iconography)
+*   **Performance**: React `Suspense` and `lazy()` for dynamic code splitting and optimized chunk loading.
+
+### ⚙️ Backend Architecture
+*   **Runtime**: Node.js (v18+)
+*   **Web Framework**: Express.js (REST API Architecture)
+*   **Security & Optimization**: 
+    *   `helmet` (HTTP header security)
+    *   `cors` (Cross-Origin Resource Sharing)
+    *   `express-rate-limit` (DDos & brute-force protection)
+    *   `compression` (Gzip payload compression)
+    *   `express-validator` (Robust API request data sanitization)
+
+### ☁️ Cloud & AI Integration (Google Cloud Platform)
+*   **PaaS Hosting**: Google Cloud Run (Fully managed serverless container execution)
+*   **Generative AI**: Google Gemini 2.5 Flash via `@google/genai` (Context-aware dynamic stadium chatbot)
+*   **Cloud Storage**: Google Cloud Storage via `@google-cloud/storage` (Durable JSON backup archives for VIP registrations)
+*   **Cloud Observability**: Google Cloud Logging via `@google-cloud/logging` (Native Express fallback and error tracking)
+*   **Database**: Google Cloud Firestore via `@google-cloud/firestore` (NoSQL scalable stadium queue tracking)
 
 ---
 
