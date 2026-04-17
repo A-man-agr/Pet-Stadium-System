@@ -8,8 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "jest",
-    "gcp-build": "npm install --prefix frontend --include=dev && npm run build --prefix frontend && rm -rf public && mv frontend/dist public"
+    "test": "jest"
   },
   "dependencies": {
     "@google-cloud/firestore": "^7.3.0",
