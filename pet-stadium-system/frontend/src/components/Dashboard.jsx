@@ -1,9 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Clock } from 'lucide-react';
 
 export default function Dashboard({ stadiumData, setStadiumData }) {
-  const [rotation, setRotation] = useState({ x: 60, z: -45 });
+  const [rotation, setRotation] = useState({ x: 30, z: 0 }); // Less tilt for better visibility
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -48,12 +55,18 @@ export default function Dashboard({ stadiumData, setStadiumData }) {
         <div className="zone-label" style={{ 
           position: 'absolute',
           top: `calc(${zone.top} + 20px)`, left: `calc(${zone.left} + 20px)`,
-          background: 'rgba(0,0,0,0.7)', padding: '6px 10px', borderRadius: '8px',
-          backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)',
-          transform: `translateZ(40px) rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg)`,
-          boxShadow: '0 4px 10px rgba(0,0,0,0.5)',
+          background: 'rgba(0,0,0,0.85)', padding: '10px 16px', borderRadius: '8px',
+          backdropFilter: 'blur(8px)', border: '2px solid rgba(255,255,255,0.3)',
+          transform: `translateZ(60px) rotateZ(${-rotation.z}deg) rotateX(${-rotation.x}deg)`,
+          boxShadow: '0 8px 20px rgba(0,0,0,0.6)',
           transition: isDragging ? 'none' : 'transform 0.1s ease',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          fontSize: '15px',
+          fontWeight: 'bold',
+          letterSpacing: '0.5px',
+          color: '#ffffff',
+          whiteSpace: 'nowrap',
+          textShadow: '0 2px 4px rgba(0,0,0,0.8)'
         }}>
           {zone.label}
         </div>
@@ -63,8 +76,16 @@ export default function Dashboard({ stadiumData, setStadiumData }) {
 
   return (
     <div className="animate-slide-up">
-      <h1 style={{ marginBottom: '10px' }}>Real-Time Crowd Dashboard</h1>
-      <p style={{ color: 'var(--text-muted)', marginBottom: '30px' }}>Monitor stadium density and receive automated alerts.</p>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
+        <div>
+          <h1 style={{ marginBottom: '10px' }}>Real-Time Crowd Dashboard</h1>
+          <p style={{ color: 'var(--text-muted)' }}>Monitor stadium density and receive automated alerts.</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(0,242,254,0.1)', border: '1px solid #00f2fe', padding: '8px 16px', borderRadius: '20px', color: '#00f2fe', fontWeight: 600, boxShadow: '0 0 15px rgba(0,242,254,0.2)' }}>
+          <Clock size={18} />
+          {currentTime.toLocaleTimeString()}
+        </div>
+      </div>
       
       <div className="grid-2">
         <div className="glass-panel" style={{ gridColumn: 'span 2', perspective: '1000px' }}>
